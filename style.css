@@ -1,11 +1,4 @@
-/* =====================================================
-   Scanaro — Privacy Policy
-   Static page · no trackers · no JS · no external fonts
-   To use Montserrat for headings, uncomment the @import
-   line and the --font-heading override in :root.
-   ===================================================== */
-
-/* @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Inter:wght@400;500&display=swap');
 
 *, *::before, *::after {
   box-sizing: border-box;
@@ -14,198 +7,272 @@
 }
 
 :root {
-  --color-bg:          #FAF8F3;
-  --color-surface:     #F3EFE6;
-  --color-text:        #1B1B1A;
-  --color-text-muted:  #6B6860;
-  --color-accent:      #E89B2C;
-  --color-link:        #855300;
-  --color-border:      #E3DDD1;
-  --max-width:         760px;
-  --font-body:         -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-                       'Helvetica Neue', Arial, sans-serif;
-  --font-heading:      var(--font-body);
-  /* --font-heading:   'Montserrat', var(--font-body); */
+  --amber:        #E89B2C;
+  --amber-dark:   #855300;
+  --amber-light:  #FDF0D8;
+  --bg:           #FAF8F3;
+  --card:         #FFFFFF;
+  --text:         #1B1B1A;
+  --text-mid:     #4A4845;
+  --text-muted:   #7A7874;
+  --border:       #EAE6DE;
+  --dark:         #141210;
+  --dark-mid:     #2A2520;
+  --max:          720px;
 }
 
-html {
-  font-size: 17px;
-  scroll-behavior: smooth;
-}
+html { font-size: 16px; scroll-behavior: smooth; }
 
 body {
-  background-color: var(--color-bg);
-  color: var(--color-text);
-  font-family: var(--font-body);
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   line-height: 1.75;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
-.container {
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 0 28px;
-}
-
-/* ---- Header ---- */
+/* ── HEADER ─────────────────────────────────────── */
 
 .site-header {
-  padding: 60px 0 44px;
+  background: var(--dark);
+  padding: 64px 24px 56px;
   text-align: center;
-  border-bottom: 3px solid var(--color-accent);
+  position: relative;
+  overflow: hidden;
 }
 
-.site-header .brand {
-  display: inline-block;
-  font-family: var(--font-heading);
-  font-size: 0.78rem;
+.site-header::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 80% 60% at 50% -10%, rgba(232,155,44,0.18) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.header-inner {
+  position: relative;
+  max-width: var(--max);
+  margin: 0 auto;
+}
+
+.brand-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(232,155,44,0.12);
+  border: 1px solid rgba(232,155,44,0.3);
+  border-radius: 100px;
+  padding: 5px 16px;
+  margin-bottom: 28px;
+}
+
+.brand-badge span {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--color-accent);
-  margin-bottom: 14px;
+  color: var(--amber);
+}
+
+.brand-badge::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--amber);
+  flex-shrink: 0;
 }
 
 .site-header h1 {
-  font-family: var(--font-heading);
-  font-size: 2.6rem;
-  font-weight: 700;
-  color: var(--color-text);
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(2rem, 5vw, 2.8rem);
+  font-weight: 800;
+  color: #FFFFFF;
   line-height: 1.15;
-  margin-bottom: 18px;
+  letter-spacing: -0.02em;
+  margin-bottom: 20px;
+}
+
+.header-divider {
+  width: 48px;
+  height: 3px;
+  background: var(--amber);
+  border-radius: 2px;
+  margin: 0 auto 20px;
 }
 
 .site-header .meta {
-  font-size: 0.88rem;
-  color: var(--color-text-muted);
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.45);
+  letter-spacing: 0.01em;
 }
 
 .site-header .meta strong {
-  color: var(--color-text);
-  font-weight: 600;
+  color: rgba(255,255,255,0.75);
+  font-weight: 500;
 }
 
-/* ---- Main ---- */
+/* ── PROMISE BANNER ─────────────────────────────── */
+
+.promise-banner {
+  background: var(--amber);
+  padding: 20px 28px;
+  text-align: center;
+}
+
+.promise-banner p {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--dark);
+  letter-spacing: 0.01em;
+  max-width: var(--max);
+  margin: 0 auto;
+}
+
+/* ── MAIN ───────────────────────────────────────── */
 
 main {
-  padding: 56px 0 72px;
+  padding: 56px 24px 80px;
 }
 
-section {
-  margin-bottom: 48px;
-  padding-bottom: 48px;
-  border-bottom: 1px solid var(--color-border);
+.content {
+  max-width: var(--max);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
-section:last-child {
-  margin-bottom: 0;
-  padding-bottom: 0;
-  border-bottom: none;
+/* ── CARDS ──────────────────────────────────────── */
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 32px 36px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.04), 0 4px 16px rgba(0,0,0,0.04);
+}
+
+.card.highlight {
+  background: var(--amber-light);
+  border-color: rgba(232,155,44,0.35);
+  box-shadow: 0 1px 4px rgba(232,155,44,0.08), 0 4px 16px rgba(232,155,44,0.08);
 }
 
 h2 {
-  font-family: var(--font-heading);
-  font-size: 0.8rem;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.7rem;
   font-weight: 700;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--color-accent);
-  margin-bottom: 16px;
+  color: var(--amber-dark);
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+h2::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+.card.highlight h2 {
+  color: #6B4000;
+}
+
+.card.highlight h2::after {
+  background: rgba(232,155,44,0.3);
 }
 
 p {
-  margin-bottom: 16px;
-  color: var(--color-text);
+  font-size: 1rem;
+  color: var(--text-mid);
+  margin-bottom: 14px;
 }
 
-p:last-child {
-  margin-bottom: 0;
+p:last-child { margin-bottom: 0; }
+
+p strong {
+  color: var(--text);
+  font-weight: 600;
 }
 
 ul {
-  margin: 4px 0 16px 22px;
+  list-style: none;
+  margin: 8px 0 14px;
   padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
+
+ul:last-child { margin-bottom: 0; }
 
 li {
-  margin-bottom: 8px;
+  display: flex;
+  gap: 12px;
+  color: var(--text-mid);
+  font-size: 1rem;
   line-height: 1.65;
-  color: var(--color-text);
 }
 
-li:last-child {
-  margin-bottom: 0;
-}
-
-strong {
-  font-weight: 600;
-  color: var(--color-text);
+li::before {
+  content: '✓';
+  color: var(--amber);
+  font-weight: 700;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+  margin-top: 2px;
 }
 
 a {
-  color: var(--color-link);
+  color: var(--amber-dark);
   text-decoration: underline;
   text-underline-offset: 3px;
   text-decoration-thickness: 1px;
-  transition: color 0.15s ease;
+  transition: color 0.15s;
 }
 
-a:hover {
-  color: var(--color-accent);
-}
+a:hover { color: var(--amber); }
 
 a:focus-visible {
-  outline: 2px solid var(--color-accent);
+  outline: 2px solid var(--amber);
   outline-offset: 3px;
-  border-radius: 2px;
+  border-radius: 3px;
   text-decoration: none;
 }
 
-/* ---- Footer ---- */
+/* ── FOOTER ─────────────────────────────────────── */
 
 .site-footer {
-  background-color: var(--color-surface);
-  border-top: 1px solid var(--color-border);
-  padding: 32px 0;
+  background: var(--dark-mid);
+  padding: 36px 24px;
   text-align: center;
 }
 
 .site-footer p {
-  font-size: 0.83rem;
-  color: var(--color-text-muted);
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.35);
   margin: 0;
 }
 
 .site-footer a {
-  color: var(--color-link);
+  color: rgba(255,255,255,0.5);
+  text-decoration: none;
 }
 
-/* ---- Responsive ---- */
+.site-footer a:hover { color: var(--amber); }
 
-@media (max-width: 620px) {
-  html {
-    font-size: 16px;
-  }
+/* ── RESPONSIVE ─────────────────────────────────── */
 
-  .site-header {
-    padding: 44px 0 36px;
-  }
-
-  .site-header h1 {
-    font-size: 2rem;
-  }
-
-  .container {
-    padding: 0 20px;
-  }
-
-  main {
-    padding: 40px 0 56px;
-  }
-
-  section {
-    margin-bottom: 36px;
-    padding-bottom: 36px;
-  }
+@media (max-width: 580px) {
+  .site-header { padding: 48px 20px 44px; }
+  .card { padding: 24px 22px; }
+  main { padding: 40px 16px 64px; }
+  .promise-banner { padding: 18px 20px; }
 }
